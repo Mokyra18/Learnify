@@ -12,23 +12,52 @@ export default function VideoCourseList() {
         getVideoCourse();
     }, []);
 
-    const getVideoCourse = async () => {
-        try {
-            const resp = await GlobalApi.getVideoCourse();
-            const result = resp.data.data.map((item) => ({
-                id: item.id,
-                name: item.attributes.title,
-                description: item.attributes.description,
-                image: item.attributes.image.data.attributes.url,
-                Topic: item.attributes.VideoTopic,
-            }));
-            setVideoList(result);
-        } catch (error) {
-            // Handle the error here
-            console.error('Failed to fetch video course:', error);
-            setError('Failed to fetch video course. Please try again later.');
-        }
-    };
+    // const getVideoCourse = async () => {
+
+    //     try {
+    //         const result = await GlobalApi.getVideoCourse();
+    //         const responseData = result.data;
+
+    //         if (!responseData || responseData.error) {
+    //             setError('Error')
+    //             return
+    //         }
+
+    //         const resp = responseData.data.map((item) => {
+    //             let imageUrl = '';
+    //             if (item.attributes.image && item.attributes.image.data && item.attributes.image.data.attributes) {
+    //                 imageUrl = item.attributes.image.data.attributes.url;
+    //             }
+    //             return {
+    //                 id: item.id,
+    //                 name: item.attributes.title,
+    //                 description: item.attributes.description,
+    //                 image: imageUrl,
+    //                 Topic: item.attributes.VideoTopics,
+    //             }
+    //         })
+
+    //         setVideoList(resp);
+    //         console.log(resp.imageList)
+    //     } catch (error) {
+    //         console.error('Failed to fetch video course:', error);
+    //         setError('Failed to fetch video course. Please try again later.');
+    //     }
+    // };
+
+    const getVideoCourse=async()=>{
+        const resp=(await GlobalApi.getVideoCourse()).data;
+        const result=resp.data.map((item)=>({
+            id:item.id,
+            name:item.attributes.title,
+            description:item.attributes.description,
+            image:item.attributes.image.data.attributes.url,
+            Topic:item.attributes.VideoTopic
+        }))
+        setVideoList(result);
+        console.log(result.Topic) 
+    }
+
 
     const onPressCourse = (course) => {
         navigation.navigate('course-detail', {

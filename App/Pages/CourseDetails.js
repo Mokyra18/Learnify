@@ -53,7 +53,7 @@ export default function CourseDetails() {
           fontSize: 20,
           fontWeight: 'bold'
         }}>{course.name}</Text>
-        <Text style={{ color: Colors.gray }}>By Tubeguruji</Text>
+        <Text style={{ color: Colors.gray }}>by Learnify</Text>
         <Image source={{ uri: course.image }}
           style={{ height: 150, marginTop: 10, borderRadius: 10 }} />
         <Text style={{

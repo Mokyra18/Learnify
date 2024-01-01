@@ -23,11 +23,13 @@ export default function Slider() {
 
       const resp = responseData.data.map((item) => ({
         id: item.id,
-        name: item.attributes.name,
-        image: item.attributes.image.data.attributes.url,
+        name: item.attributes.Name,
+        image: item.attributes.Image.data.attributes.url,
       }));
+      
 
       setSlider(resp);
+      console.log(resp)
     } catch (error) {
       console.error('Error fetching slider data:', error);
       setError('An unexpected error occurred. Please try again later.');

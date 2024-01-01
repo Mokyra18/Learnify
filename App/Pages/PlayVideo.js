@@ -11,7 +11,8 @@ export default function PlayVideo() {
     useEffect(()=>{
         setVideoChapter(param.courseContent)
     },[])
-   
+   console.log(videoChapter.videoUrl)
+   console.log(videoChapter.Name)
 
   const onStateChange = useCallback((state) => {
     if (state === "ended") {
@@ -26,7 +27,7 @@ export default function PlayVideo() {
         </TouchableOpacity>
         {videoChapter?
         <View>
-             <Text style={{marginBottom:10,fontSize:20,fontWeight:'bold'}}>{videoChapter.name}</Text>
+             <Text style={{marginBottom:10,fontSize:20,fontWeight:'bold'}}>{videoChapter.Name}</Text>
              <YoutubePlayer
         height={220}
         play={playing}
