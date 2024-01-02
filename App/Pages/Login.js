@@ -7,8 +7,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import { TouchableOpacity } from 'react-native';
 import { AuthContext } from '../Context/AuthContext';
 import Services from '../Shared/Services';
-import loginImage from "../Assets/Images/loginImage.png"
-
+import loginImage from "../Assets/Images/login.png";
 
 export default function Login() {
   WebBrowser.maybeCompleteAuthSession();
