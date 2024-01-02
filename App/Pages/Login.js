@@ -7,6 +7,9 @@ import * as Google from 'expo-auth-session/providers/google';
 import { TouchableOpacity } from 'react-native';
 import { AuthContext } from '../Context/AuthContext';
 import Services from '../Shared/Services';
+import loginImage from "../Assets/Images/loginImage.png"
+
+
 export default function Login() {
   WebBrowser.maybeCompleteAuthSession();
   const [accessToken, setAccessToken] = useState();
@@ -46,27 +49,27 @@ export default function Login() {
   }
   return (
     <View>
-      <Image source={require('./../Assets/Images/login.png')} />
+      <Image source={loginImage} />
       <View style={styles.container}>
-        <Text style={styles.welcomeText}>Welcome to CodeBox</Text>
-        <Text style={{
-          textAlign: 'center',
+        <Text style={styles.welcomeText}>Welcome to Learnify</Text>
+        {/* <Text style={{
+          textAlign: 'cen ter',
           marginTop: 80, fontSize: 20
-        }}>Login/Signup</Text>
+        }}>Login/Signup</Text> */}
         <TouchableOpacity style={styles.button}
           onPress={() => promptAsync()}>
           <Ionicons name="logo-google" size={24}
             color="white" style={{ marginRight: 10 }} />
           <Text style={{ color: Colors.white }}>Sign In with Google</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setUserData({
+        {/* <TouchableOpacity onPress={() => setUserData({
           name: 'Rizky Ramadhani',
           picture: 'https://cdn3d.iconscout.com/3d/premium/thumb/male-customer-call-service-portrait-6760890-5600697.png?f=webp',
           email: 'rizkyramadhani181102@gmail.com',
           id: 1
         })}>
           <Text>Skip</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </View>
     </View>
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
     marginTop: -25,
     backgroundColor: '#fff',
     borderTopRightRadius: 30,
+    height: '100%',
     borderTopLeftRadius: 30
   },
   welcomeText: {
